@@ -351,8 +351,6 @@ input.invalid { border-color: var(--body-t); background: var(--body-bg); }
 .more-links .btn { width: 100%; text-decoration: none; }
 
 /* 頁尾／首頁的互通連結 */
-.foot-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 12px; margin: 0 0 8px; }
-.foot-nav a, .meta-links a { color: var(--ink); text-underline-offset: 3px; }
-.foot-nav a { display: inline-flex; align-items: center; min-height: 40px; }
+.meta-links a { color: var(--ink); text-underline-offset: 3px; }
 .meta-links { margin-top: 6px; }
 .meta-links a { display: inline-block; padding: 8px 4px; }
