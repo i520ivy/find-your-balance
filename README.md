@@ -13,7 +13,7 @@
 
 ## Instagram
 `app.js` 的 `CONFIG.instagramUrl` 與 `index.html` 內 `#ig-link` 的 `href` 都是
-`https://www.instagram.com/yulin__aerial.yoga/`。之後若要更換，兩處都要改（HTML 那一份是給 JavaScript 沒有執行時使用的）。
+`https://www.instagram.com/yulin__aerial.ot/`。之後若要更換，兩處都要改（HTML 那一份是給 JavaScript 沒有執行時使用的）。
 
 ## Google 表單設定（必須與網頁一字不差）
 
@@ -62,3 +62,10 @@
 - Email、留言與同意勾選不會存入瀏覽器暫存，只有按「送出並完成」時才送到 Google 表單。
 - 回饋資料存放在玉霖的 Google 表單／試算表，會經過 Google 的服務處理。
 - 程式碼內沒有任何 API Key。
+
+## 輪播與手機閱讀版（slides/）
+
+- `slides/index.html`：16:9 輪播簡報（現場平板橫向全螢幕播放）。手機直式開啟會自動轉到手機版；網址加 `?tv` 可強制顯示簡報。
+- `slides/mobile.html`：手機閱讀版，`#story`＝認識玉霖、`#action`＝行動展示。
+- 互動體驗的完成頁有連到手機版與 Instagram。
+- 簡報的原始檔在 `03｜自我介紹卡與個人故事`，修改後需重新複製到此資料夾。

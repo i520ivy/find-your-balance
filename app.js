@@ -12,7 +12,7 @@
 
   /* ---------- 設定（請依實際情況修改） ---------- */
   var CONFIG = {
-    instagramUrl: 'https://www.instagram.com/yulin__aerial.yoga/', // 玉霖 空中瑜伽 Instagram（index.html 內的連結也要一致）
+    instagramUrl: 'https://www.instagram.com/yulin__aerial.ot/', // 玉霖 空中瑜伽 Instagram（index.html 內的連結也要一致）
     googleForm: {
       // 留空＝示範模式（不送出）
       actionUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSf8yn_rEqmRI5LkfUHthGq5G1Ei2_tZibB-GF-HYQZcJO_Upg/formResponse',

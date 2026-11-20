@@ -342,3 +342,10 @@ input.invalid { border-color: var(--body-t); background: var(--body-bg); }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .breath-circle.running, .breath-circle.paused { transform: scale(.87); }
 }
+
+/* ---------- Done：認識玉霖／行動展示連結 ---------- */
+.more { margin: 26px 0 22px; }
+.more .eyebrow { margin: 0 0 4px; text-align: center; }
+.more-lead { margin: 0 0 14px; text-align: center; font-size: 14.5px; color: var(--ink-2); }
+.more-links { display: grid; gap: 10px; }
+.more-links .btn { width: 100%; text-decoration: none; }

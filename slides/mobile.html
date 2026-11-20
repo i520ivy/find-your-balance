@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#faf6f0">
+<title>職想瑜你｜認識玉霖與行動展示</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Iansui&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* 東京手帳 tokyo-journal｜手機閱讀版 */
+:root{
+  --bg:#faf6f0; --paper:#fffdf9; --oat:#f2ebe0; --oat-2:#e7dccb;
+  --ink:#3f3531; --ink-2:#7b6f68; --coffee:#9a7b64; --line:#ebe2d6;
+  --accent:#b25a70; --accent-soft:#f9ecef; --accent-line:#e9b8c3;
+  --accent-2:#5f86a8; --accent-2-soft:#eaf1f7; --accent-2-line:#a9bfd2;
+  --f-head:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --f-body:"Iansui","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-deco:"Cormorant Garamond","Times New Roman",Georgia,serif;
+  --f-num:"DM Sans","Helvetica Neue",Arial,sans-serif;
+  --r:16px; --shadow:0 1px 2px rgba(80,60,50,.04),0 6px 18px rgba(80,60,50,.06);
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;letter-spacing:.03em;
+  background-image:linear-gradient(rgba(154,123,100,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(154,123,100,.06) 1px,transparent 1px);background-size:32px 32px}
+img{max-width:100%;display:block}
+a{color:var(--accent-2)}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 40px}
+
+/* 頂部切換 */
+.top{position:sticky;top:0;z-index:20;background:linear-gradient(var(--bg) 70%,transparent);padding:10px 16px 14px}
+.tabs{max-width:560px;margin:0 auto;display:flex;gap:8px;background:var(--oat);padding:4px;border-radius:999px}
+.tabs button{flex:1;min-height:44px;border:0;border-radius:999px;background:none;font:inherit;font-weight:500;color:var(--ink-2);cursor:pointer;letter-spacing:.08em}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff}
+
+/* 區塊 */
+section.s{position:relative;padding:34px 0 30px;border-bottom:1px dashed var(--line)}
+section.s:last-of-type{border-bottom:0}
+.en{display:inline-block;font-family:var(--f-deco);font-style:italic;font-weight:500;font-size:1.3rem;color:var(--accent);padding-bottom:6px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.en .n{font-family:var(--f-num);font-style:normal;font-size:.8rem;letter-spacing:.14em;color:var(--accent-2);margin-right:10px}
+h1,h2{font-family:var(--f-head);font-weight:600;line-height:1.4;letter-spacing:.04em}
+h1{font-size:2.1rem}
+h2{font-size:1.45rem}
+h3{font-family:var(--f-head);font-weight:600;font-size:1.1rem;line-height:1.5}
+p{color:var(--ink-2)}
+.lead{margin-top:12px;font-size:1.02rem}
+.sub{margin-top:10px;font-size:1.1rem;color:var(--ink)}
+.note{font-size:.86rem}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:16px 18px}
+.grid{display:grid;gap:12px;margin-top:18px}
+.ico{width:44px;height:44px;margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{padding:4px 14px;border:1px solid var(--line);background:var(--paper);border-radius:999px;font-size:.92rem;color:var(--ink-2);min-height:36px;display:inline-flex;align-items:center}
+.chip.brand{border-color:var(--accent-line);color:var(--ink)}
+.tag{display:inline-flex;align-items:center;font-size:.78rem;font-weight:500;padding:1px 12px;border-radius:999px;margin-bottom:10px}
+.tag.done{background:var(--ink);color:#fff}
+.tag.design{background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent-line)}
+.tag.future{color:var(--accent-2);border:1.5px dashed var(--accent-2-line)}
+.num{font-family:var(--f-num);font-weight:500;color:var(--accent-2)}
+
+/* 貼上去的照片 */
+.pasted{position:relative;width:min(78%,320px);margin:26px auto 8px}
+.pasted .tape{position:absolute;top:-14px;left:50%;width:110px;height:26px;margin-left:-55px;transform:rotate(-3deg);z-index:2;
+  background:repeating-linear-gradient(135deg,var(--tc) 0 8px,color-mix(in srgb,var(--tc) 55%,#fff) 8px 16px);opacity:.9;box-shadow:0 1px 2px rgba(80,60,50,.12)}
+.pasted .frame{border:9px solid var(--paper);border-radius:6px;overflow:hidden;box-shadow:var(--shadow),0 10px 22px rgba(80,60,50,.10);background:var(--paper)}
+.pasted img{width:100%;height:100%;object-fit:cover}
+.sticker{position:absolute;width:26px;height:26px;color:var(--accent)}
+
+/* 流程／時間軸 */
+.steps{display:grid;gap:10px;margin-top:18px}
+.step{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
+.step .dot{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--accent);background:var(--paper);display:grid;place-items:center;font-family:var(--f-num);font-weight:500;color:var(--accent-2);font-size:.9rem}
+.tl{position:relative;margin-top:18px;padding-left:8px}
+.tl::before{content:"";position:absolute;left:23px;top:14px;bottom:14px;width:1px;background:var(--accent-line)}
+
+.big{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.big .card{text-align:center}
+.big .num{font-size:3.6rem;line-height:1.1;display:block}
+
+section.s.hero-grad{margin:0 -16px;padding:34px 16px 30px;background:linear-gradient(160deg,#eef3f7,var(--bg) 75%)}
+.cta{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;margin-top:20px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:500;letter-spacing:.1em}
+.cta.ghost{background:var(--oat);color:var(--ink)}
+.signature{margin:34px 0 0;text-align:center;font-size:.8rem;color:var(--ink-2)}
+.signature b{display:block;font-family:var(--f-deco);font-style:italic;font-weight:600;font-size:1.3rem;color:var(--ink)}
+[hidden]{display:none!important}
+.rise{opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.rise.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rise{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="sakura" viewBox="0 0 40 40"><g fill="currentColor"><path id="pt" d="M20 20C13 15 12 7 17 2 18.500 4 19.500 4 20 5 20.500 4 21.500 4 23 2 28 7 27 15 20 20Z"/><use href="#pt" transform="rotate(72 20 20)"/><use href="#pt" transform="rotate(144 20 20)"/><use href="#pt" transform="rotate(216 20 20)"/><use href="#pt" transform="rotate(288 20 20)"/></g><circle cx="20" cy="20" r="2.600" fill="#fffdf9"/></symbol>
+</defs></svg>
+
+<div class="top"><div class="tabs" role="tablist">
+  <button role="tab" id="t-story" aria-selected="true" data-tab="story">認識玉霖</button>
+  <button role="tab" id="t-action" aria-selected="false" data-tab="action">行動展示</button>
+</div></div>
+
+<main class="wrap">
+
+<!-- ================= 個人故事 ================= -->
+<div id="story" role="tabpanel">
+
+<section class="s hero-grad rise">
+  <p class="en">Meet the person behind</p>
+  <h1>你好，<br>我是玉霖。</h1>
+  <p class="sub">在身體與生活之間，<br>尋找自己的平衡。</p>
+  <div class="pasted" style="transform:rotate(-2deg)"><span class="tape" style="--tc:#e9b8c3"></span>
+    <div class="frame" style="aspect-ratio:4/5"><img src="assets/portrait.jpg" alt="玉霖的個人照" style="object-position:57% 38%;transform:scale(1.3);transform-origin:57% 32%"></div>
+    <svg class="sticker" style="right:-12px;top:20px"><use href="#sakura"/></svg>
+  </div>
+  <div class="chips" style="justify-content:center"><span class="chip brand">職想瑜你｜<i style="font-family:var(--f-deco);font-weight:600">&nbsp;Find your balance&nbsp;</i>｜找回生活平衡</span></div>
+</section>
+
+<section class="s rise">
+  <p class="en"><span class="n">01</span>About me</p>
+  <h2>專業與現在的生活</h2>
+  <p class="lead">具職能治療專業背景，目前從事空中瑜伽教學，也持續探索空環、舞綢等不同的空中運動。</p>
+  <div class="grid">
+    <div class="card"><svg class="ico" viewBox="0 0 96 96" fill="none" stroke="#9a7b64" stroke-width="3.500" stroke-linecap="round" stroke-linejoin="round"><path d="M48 80S14 60 14 36a17 17 0 0 1 34-4 17 17 0 0 1 34 4c0 24-34 44-34 44z" fill="#f2ebe0"/><path d="M48 34v22M37 45h22"/></svg><h3>職能治療專業背景</h3><p class="note">以專業視角理解身體與生活</p></div>
+    <div class="card"><svg class="ico" viewBox="0 0 96 96" fill="none" stroke="#9a7b64" stroke-width="3.500" stroke-linecap="round"><path d="M30 6c-6 24 14 30 6 52S28 80 40 90M66 6c-6 24 14 30 6 52S64 80 76 90"/><circle cx="48" cy="22" r="6" fill="#f2ebe0"/><path d="M26 48c14 14 30 14 44 0"/></svg><h3>空中瑜伽教學</h3><p class="note">目前的教學方向</p></div>
+    <div class="card"><svg class="ico" viewBox="0 0 96 96" fill="none" stroke="#9a7b64" stroke-width="3.500" stroke-linecap="round"><path d="M10 62c14-28 28-28 38 0s24 28 38 0"/><path d="M10 78c14-28 28-28 38 0s24 28 38 0" opacity=".5"/><path d="M48 8c1.500 9 6 13.500 15 15-9 1.500-13.500 6-15 15-1.500-9-6-13.500-15-15 9-1.500 13.500-6 15-15z" fill="#f2ebe0"/></svg><h3>身體探索與動作學習</h3><p class="note">空環、舞綢，持續體驗</p></div>
+  </div>
+</section>
+
+<section class="s rise">
+  <p class="en"><span class="n">02</span>Where I started</p>
+  <h2>曾經，我很習慣<br>照著標準答案前進。</h2>
+  <p class="lead">以前的我，是大家眼中的標準好學生。認真、努力，也習慣按照期待一步步前進。</p>
+  <svg viewBox="0 0 560 560" style="width:62%;margin:20px auto 0;display:block"><g fill="#fffdf9" stroke="#e9b8c3" stroke-width="3"><rect x="20" y="20" width="160" height="160" rx="22"/><rect x="200" y="20" width="160" height="160" rx="22"/><rect x="380" y="20" width="160" height="160" rx="22"/><rect x="20" y="200" width="160" height="160" rx="22"/><rect x="200" y="200" width="160" height="160" rx="22"/><rect x="380" y="200" width="160" height="160" rx="22"/><rect x="20" y="380" width="160" height="160" rx="22"/><rect x="200" y="380" width="160" height="160" rx="22"/><rect x="380" y="380" width="160" height="160" rx="22"/></g><path d="M100 100H280V280H460V460" fill="none" stroke="#b25a70" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="100" cy="100" r="22" fill="#b25a70"/></svg>
+</section>
+
+<section class="s rise">
+  <p class="en"><span class="n">03</span>A turning point</p>
+  <h2>後來，我開始問自己：<br>我真正想要的是什麼？</h2>
+  <p class="lead">經歷醫院實習後，我開始重新思考：如果人生不只有一條標準路線，我真正想要的是什麼？</p>
+  <svg viewBox="0 0 560 620" style="width:58%;margin:20px auto 0;display:block"><defs><radialGradient id="glow" cx="50%" cy="45%" r="55%"><stop offset="0" stop-color="#fffdf9"/><stop offset="1" stop-color="#f9ecef"/></radialGradient></defs><path d="M130 600V250a150 150 0 0 1 300 0V600z" fill="url(#glow)" stroke="#9a7b64" stroke-width="7"/><g stroke="#e9b8c3" stroke-width="6" stroke-linecap="round"><path d="M280 90V40M205 118l-30-38M355 118l30-38"/></g><path d="M0 560H60V470H120" fill="none" stroke="#9a7b64" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/><path d="M120 470C190 470 220 540 280 520C340 500 280 400 280 330" fill="none" stroke="#b25a70" stroke-width="10" stroke-linecap="round" stroke-dasharray="1 22"/><circle cx="280" cy="322" r="16" fill="#b25a70"/></svg>
+</section>
+
+<section class="s rise">
+  <p class="en"><span class="n">04</span>Exploring</p>
+  <h2>我從喜歡的事出發，<br>慢慢探索更多可能。</h2>
+  <p class="lead">於是，我從喜歡的空中瑜伽出發，重新認識身體，也探索生活的更多可能。</p>
+  <div class="pasted" style="transform:rotate(2deg)"><span class="tape" style="--tc:#a9bfd2"></span>
+    <div class="frame" style="aspect-ratio:2/3"><img src="assets/aerial.jpg" alt="空中瑜伽照片" style="object-position:50% 100%;transform:scale(1.16);transform-origin:50% 100%"></div>
+  </div>
+  <div class="chips" style="justify-content:center"><span class="chip">空中瑜伽</span><span class="chip">空環／舞綢</span><span class="chip">動作拆解</span><span class="chip">身體覺察</span><span class="chip">持續學習</span></div>
+</section>
+
+<section class="s rise">
+  <p class="en"><span class="n">05</span>Things I love</p>
+  <h2>我對生活中的各種事物，都保持好奇。</h2>
+  <p class="lead">我喜歡研究動作、拆解細節，也對生活中的各種事物充滿好奇。攝影、音樂、閱讀、旅行，還有各種沒做過的新體驗，都是我探索世界的方式。</p>
+  <div class="chips"><span class="chip">研究動作</span><span class="chip">攝影</span><span class="chip">音樂</span><span class="chip">閱讀</span><span class="chip">旅行</span><span class="chip">新體驗</span></div>
+</section>
+
+<section class="s rise">
+  <p class="en"><span class="n">06</span>A note for you</p>
+  <h2 style="font-size:1.6rem">你不需要一直很努力，<br>才值得好好對待。</h2>
+  <p class="lead">我相信，學習不只是完成一個動作，更是認識自己、照顧自己，並找到適合自己的生活節奏。</p>
+  <p class="sub" style="color:var(--accent)">一起探索更多可能。</p>
+  <a class="cta" href="https://www.instagram.com/yulin__aerial.ot/" target="_blank" rel="noopener">Instagram @yulin__aerial.ot</a>
+  <a class="cta ghost" href="#action" data-jump="action">看這次的行動展示</a>
+</section>
+</div>
+
+<!-- ================= 行動展示 ================= -->
+<div id="action" role="tabpanel" hidden>
+
+<section class="s hero-grad rise">
+  <p class="en">Soul Lab · Showcase</p>
+  <h1 style="font-weight:600;letter-spacing:.14em">職想瑜你</h1>
+  <p style="font-family:var(--f-deco);font-style:italic;font-weight:600;font-size:2rem;color:var(--accent);line-height:1.2;margin-top:4px">Find your balance</p>
+  <p class="sub" style="letter-spacing:.12em">找回生活平衡</p>
+  <p class="lead">從身體覺察出發，讓自我照顧走進日常生活。</p>
+</section>
+
+<section class="s rise">
+  <p class="en"><span class="n">01</span>Why I started</p>
+  <h2>忙著前進的時候，你還聽得見自己的需要嗎？</h2>
+  <p class="lead">在學業、工作與生活壓力中，我們可能不斷要求自己達成目標，卻逐漸忽略身體與情緒發出的訊號。有時候不是不想照顧自己，而是不知道如何停下來、察覺需求，或找到真正能融入生活的做法。</p>
+  <div class="steps">
+    <div class="step"><span class="dot">1</span><div><h3>忙碌</h3><p class="note">行程、待辦、目標</p></div></div>
+    <div class="step"><span class="dot">2</span><div><h3>停下</h3><p class="note">暫停、呼吸</p></div></div>
+    <div class="step"><span class="dot">3</span><div><h3>重新覺察</h3><p class="note">身體與生活</p></div></div>
+  </div>
+  <p style="margin-top:20px;color:var(--ink);font-weight:500">服務對象：20–35 歲的年輕成人</p>
+  <div class="chips" style="margin-top:8px"><span class="chip">大學生、研究生、初入職場者</span><span class="chip">人生轉換與探索階段</span></div>
+</section>
+
+<section class="s rise">
+  <p class="en"><span class="n">02</span>The idea</p>
+  <h2>我想陪伴每個在忙碌生活中努力前進的年輕人</h2>
+  <p style="font-family:var(--f-head);font-size:1.15rem;line-height:1.7;color:var(--ink);margin-top:14px">重新聽見身體的聲音，找回照顧自己與平衡生活的能力。</p>
+  <svg viewBox="0 0 640 600" style="width:92%;margin:12px auto 0;display:block">
+    <circle cx="320" cy="190" r="150" fill="#e9b8c3" fill-opacity=".6"/><circle cx="200" cy="390" r="150" fill="#a9bfd2" fill-opacity=".5"/><circle cx="440" cy="390" r="150" fill="#e7dccb" fill-opacity=".85"/>
+    <circle cx="320" cy="330" r="76" fill="#3f3531"/>
+    <g text-anchor="middle" style="font-family:Iansui,'Noto Sans TC','Microsoft JhengHei',sans-serif" fill="#fff" font-size="26"><text x="320" y="324">以人</text><text x="320" y="358">為中心</text></g>
+    <g text-anchor="middle" fill="#3f3531" style="font-family:Iansui,'Noto Sans TC','Microsoft JhengHei',sans-serif">
+      <text x="320" y="130" font-size="38" style="font-family:'Noto Serif TC',serif;font-weight:600">身體覺察</text><text x="320" y="166" font-size="22">動作、伸展、呼吸</text>
+      <text x="160" y="430" font-size="38" style="font-family:'Noto Serif TC',serif;font-weight:600">生活探索</text><text x="160" y="466" font-size="22">生活紀錄</text>
+      <text x="480" y="430" font-size="38" style="font-family:'Noto Serif TC',serif;font-weight:600">自我照顧</text><text x="480" y="466" font-size="22">融入生活的小嘗試</text>
+    </g></svg>
+  <p class="note" style="margin-top:6px">結合職能治療觀點、空中瑜伽、身體覺察與生活紀錄，陪伴參與者重新認識自己的身體、情緒與生活狀態，探索適合自己且能持續的生活節奏。</p>
+</section>
+
+<section class="s rise">
+  <span class="tag design">服務設計｜原始構想</span>
+  <h2>從身體覺察到生活實踐</h2>
+  <div class="tl">
+    <div class="step" style="margin-top:6px"><span class="dot">1</span><div><h3>身體體驗</h3><p class="note" style="color:var(--accent-2);font-weight:500">空中瑜伽 × 伸展 × 呼吸／放鬆練習</p><p class="note">透過身體活動與覺察練習，留意當下的身體感受與狀態。</p></div></div>
+    <div class="step" style="margin-top:20px"><span class="dot">2</span><div><h3>生活觀察</h3><p class="note" style="color:var(--accent-2);font-weight:500">職能平衡檢視 × 職能生活日誌</p><p class="note">透過生活紀錄，觀察每日完成的事情、幸福感、生產力與能量消耗，逐步認識自己的生活模式與壓力來源。</p></div></div>
+    <div class="step" style="margin-top:20px"><span class="dot">3</span><div><h3>個別討論</h3><p class="note" style="color:var(--accent-2);font-weight:500">回顧紀錄 × 討論生活需求 × 探索小嘗試</p><p class="note">根據參與者的生活紀錄與主要困擾進行討論，共同尋找能融入日常生活的小嘗試。</p></div></div>
+  </div>
+</section>
+
+<section class="s rise">
+  <span class="tag done">已執行</span>
+  <h2>從構想到實際行動</h2>
+  <div class="big">
+    <div class="card"><span class="num">4</span><h3>人</h3><p class="note">實體工作坊參與者</p></div>
+    <div class="card"><span class="num">1</span><h3>人</h3><p class="note">後續個別諮詢</p></div>
+  </div>
+  <div class="grid" style="gap:8px;margin-top:20px">
+    <p class="step" style="grid-template-columns:22px 1fr;gap:8px"><svg width="20" height="20" style="color:var(--accent-line);margin-top:5px"><use href="#sakura"/></svg><span>規劃並執行實體工作坊。</span></p>
+    <p class="step" style="grid-template-columns:22px 1fr;gap:8px"><svg width="20" height="20" style="color:var(--accent-line);margin-top:5px"><use href="#sakura"/></svg><span>帶領參與者進行伸展、呼吸及冥想練習。</span></p>
+    <p class="step" style="grid-template-columns:22px 1fr;gap:8px"><svg width="20" height="20" style="color:var(--accent-line);margin-top:5px"><use href="#sakura"/></svg><span>介紹職能生活日誌的使用方式，引導參與者觀察生活狀態。</span></p>
+    <p class="step" style="grid-template-columns:22px 1fr;gap:8px"><svg width="20" height="20" style="color:var(--accent-line);margin-top:5px"><use href="#sakura"/></svg><span>進行 1 位參與者的後續個別諮詢，依其生活紀錄與主要困擾討論可融入日常的小嘗試。</span></p>
+  </div>
+</section>
+
+<section class="s rise">
+  <p class="en"><span class="n">03</span>The journal</p>
+  <h2>不只在課堂感受，也能在生活中持續觀察</h2>
+  <p style="font-family:var(--f-head);font-size:1.5rem;margin-top:14px">職能生活日誌</p>
+  <p class="lead" style="margin-top:6px">日誌是協助觀察與回顧的工具，不是評分或診斷工具。目的是讓個人更容易看見自己的生活模式，再依需求思考可能的小調整。</p>
+  <div class="chips"><span class="chip brand">活動</span><span class="chip brand">感受</span><span class="chip brand">能量</span><span class="chip brand">回顧</span></div>
+</section>
+
+<section class="s rise">
+  <span class="tag future">未來規劃</span>
+  <h2>下一步，持續整理、優化與驗證</h2>
+  <div class="tl">
+    <div class="step"><span class="dot">1</span><div><p class="note" style="color:var(--accent)">第一個月</p><h3>整理經驗與蒐集回饋</h3><p class="note">整理工作坊與諮詢經驗，找出需改善的環節。</p></div></div>
+    <div class="step" style="margin-top:20px"><span class="dot">2</span><div><p class="note" style="color:var(--accent)">第二個月</p><h3>優化服務與工具</h3><p class="note">調整工作坊流程與職能生活日誌。</p></div></div>
+    <div class="step" style="margin-top:20px"><span class="dot">3</span><div><p class="note" style="color:var(--accent)">第三個月</p><h3>再次測試與驗證</h3><p class="note">小規模再測試，蒐集回饋、評估後續發展。</p></div></div>
+  </div>
+</section>
+
+<section class="s rise">
+  <p class="en"><span class="n">04</span>Long-term vision</p>
+  <h2>讓一次體驗，成為長期生活練習的起點</h2>
+  <div class="grid">
+    <div class="card"><h3>多次性工作坊／期班課程</h3><p class="note">加入實體交流與討論，建立更完整的學習與支持歷程。</p></div>
+    <div class="card"><h3>職能生活日誌</h3><p class="note">發展成可長期使用、持續優化的自我覺察工具。</p></div>
+    <div class="card"><h3>數位自我覺察工具</h3><p class="note">結合職能治療相關參考架構與模式，探索小程式的可能性。</p></div>
+  </div>
+  <p style="margin-top:26px;text-align:center;font-family:var(--f-deco);font-style:italic;font-weight:600;font-size:1.5rem;color:var(--accent);line-height:1.3">Balance begins with awareness.</p>
+  <p style="text-align:center;color:var(--ink)">從覺察開始，找回適合自己的生活節奏。</p>
+  <a class="cta" href="#story" data-jump="story">回到「認識玉霖」</a>
+</section>
+</div>
+
+<p class="signature"><b>Find your balance</b>職想瑜你 · 玉霖</p>
+</main>
+
+<script>
+(function(){
+  var tabs={story:document.getElementById('story'),action:document.getElementById('action')};
+  var btns=document.querySelectorAll('.tabs button');
+  function reveal(root){
+    var els=root.querySelectorAll('.rise:not(.in)');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.08});
+    els.forEach(function(e){io.observe(e)});
+  }
+  function show(name,push){
+    if(!tabs[name])name='story';
+    for(var k in tabs){tabs[k].hidden=(k!==name)}
+    btns.forEach(function(b){b.setAttribute('aria-selected',b.dataset.tab===name)});
+    reveal(tabs[name]); window.scrollTo(0,0);
+    if(push!==false){try{history.replaceState(null,'','#'+name)}catch(e){}}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.tab)})});
+  document.querySelectorAll('[data-jump]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();show(a.dataset.jump)})});
+  show(location.hash.replace('#','')||'story',false);
+})();
+</script>
+</body>
+</html>
