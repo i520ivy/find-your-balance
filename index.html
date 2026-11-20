@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FBF8F5">
+  <title>職想瑜你｜給自己一分鐘</title>
+  <meta name="description" content="職想瑜你 Find Your Balance — 給自己一分鐘的身體覺察小實驗。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 柔光覺察 裝飾元件（抽象圖形，可重複使用） -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <!-- 四芒星 -->
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 0C12.6 8 16 11.4 24 12C16 12.6 12.6 16 12 24C11.4 16 8 12.6 0 12C8 11.4 11.4 8 12 0Z"/></symbol>
+    <!-- 角落細弧線＋色塊 -->
+    <symbol id="i-arc" viewBox="0 0 200 200"><path d="M0 0 H160 C120 30 60 40 0 120Z" style="fill:var(--c)" fill-opacity=".35"/><path d="M0 150 C30 70 90 30 170 20" stroke="#754653" stroke-opacity=".5" fill="none"/></symbol>
+    <!-- 層疊波帶 -->
+    <symbol id="i-wave" viewBox="0 0 300 130" preserveAspectRatio="none"><path d="M0 40 C60 0 130 70 300 20 V130 H0Z" style="fill:var(--c)" fill-opacity=".28"/><path d="M0 75 C80 35 170 105 300 55 V130 H0Z" style="fill:var(--c)" fill-opacity=".42"/><path d="M0 95 C90 60 200 110 300 70 V130 H0Z" fill="#fff" fill-opacity=".35"/><path d="M0 70 C100 30 190 95 300 30" stroke="#754653" stroke-opacity=".45" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/></symbol>
+    <!-- 圓點群 -->
+    <symbol id="i-dots" viewBox="0 0 46 30"><circle cx="4" cy="20" r="2"/><circle cx="14" cy="12" r="2.4"/><circle cx="24" cy="22" r="1.6"/><circle cx="30" cy="6" r="2"/><circle cx="42" cy="16" r="1.6"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <div class="app">
+    <header class="topbar" id="topbar" hidden>
+      <button type="button" class="icon-btn" id="btn-back" aria-label="返回上一頁">
+        <svg width="20" height="20"><use href="#i-back"/></svg>
+      </button>
+      <div class="progress" aria-live="polite">
+        <div class="progress-label"><span id="progress-text">1 / 5</span><span id="progress-name"></span></div>
+        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Page 0: Welcome -->
+      <section class="page page-hero" data-page="0" data-name="Welcome">
+        <svg class="corner-arc" aria-hidden="true"><use href="#i-arc"/></svg>
+        <svg class="corner-star" aria-hidden="true"><use href="#i-sparkle"/></svg>
+        <svg class="corner-dots" aria-hidden="true"><use href="#i-dots"/></svg>
+        <div class="hero">
+          <p class="brand-line">Soul LAB · <span class="brand-name">玉霖</span></p>
+          <h1 class="title">職想瑜你</h1>
+          <p class="subtitle-en">Find your balance</p>
+          <div class="divider" aria-hidden="true"><svg><use href="#i-sparkle"/></svg></div>
+          <p class="hero-q">找回生活平衡。</p>
+          <p class="lead">生活總是有好多事情要完成，<br>有時候，我們卻忘了留一點時間給自己。</p>
+          <p class="theme-tag">給自己一分鐘｜身體覺察小實驗</p>
+          <button type="button" class="btn btn-primary btn-lg" data-action="start">開始我的平衡探索</button>
+          <p class="meta">預估體驗時間 2–3 分鐘 · 免登入 · 可匿名</p>
+        </div>
+      </section>
+
+      <!-- Page 1: Check-in -->
+      <section class="page" data-page="1" data-name="Check-in" data-cat="emo" hidden>
+        <div class="page-head">
+          <p class="eyebrow">Check-in</p>
+          <h2 class="page-title">此刻的你，<br>最接近哪種狀態？</h2>
+          <div class="divider" aria-hidden="true"><svg><use href="#i-sparkle"/></svg></div>
+        </div>
+        <div class="options" role="radiogroup" aria-label="此刻的狀態" data-field="mood"></div>
+
+        <h3 class="q-title">最近，你最常忽略的是？</h3>
+        <div class="options" role="radiogroup" aria-label="最近最常忽略的" data-field="neglect"></div>
+
+        <p class="error" id="err-1" role="alert" hidden></p>
+        <div class="actions"><button type="button" class="btn btn-primary" data-action="next">下一步</button></div>
+      </section>
+
+      <!-- Page 2: Body Awareness -->
+      <section class="page" data-page="2" data-name="Body Awareness" data-cat="body" hidden>
+        <div class="page-head">
+          <p class="eyebrow">Body Awareness</p>
+          <h2 class="page-title">給自己一分鐘。</h2>
+          <div class="divider" aria-hidden="true"><svg><use href="#i-sparkle"/></svg></div>
+          <p class="hint">用你自己舒服的方式坐著或站著，照平常的節奏呼吸就好，不需要刻意調整。</p>
+        </div>
+
+        <div class="breath-wrap">
+          <div class="breath-circle" id="breath-circle" aria-hidden="true">
+            <div class="breath-ring"></div>
+          </div>
+          <div class="breath-center">
+            <span class="breath-time" id="breath-time">60</span>
+            <span class="breath-unit">秒</span>
+          </div>
+        </div>
+        <p class="note note-tight">圓圈只是陪伴的畫面，不需要跟著它的速度呼吸。</p>
+
+        <ol class="guide-steps" id="guide-steps"></ol>
+        <p class="guide-now" id="guide-now" aria-live="polite">準備好時，按下「開始」。</p>
+
+        <div class="timer-controls">
+          <button type="button" class="btn btn-primary" id="btn-timer">開始</button>
+          <button type="button" class="btn btn-ghost" id="btn-skip">跳過</button>
+        </div>
+        <p class="note">若過程中感到不適，請隨時停下來。</p>
+
+        <div class="actions"><button type="button" class="btn btn-primary" data-action="next" id="btn-next-2" disabled>繼續</button></div>
+      </section>
+
+      <!-- Page 3: Life Balance -->
+      <section class="page" data-page="3" data-name="Life Balance" data-cat="life" hidden>
+        <div class="page-head">
+          <p class="eyebrow">Life Balance</p>
+          <h2 class="page-title">看看自己的生活配置。</h2>
+          <div class="divider" aria-hidden="true"><svg><use href="#i-sparkle"/></svg></div>
+          <p class="hint">你可以自由選擇想探索的面向，不需要每一項都回答。沒有標準答案，憑直覺選就好；再點一次可以取消。</p>
+        </div>
+
+        <div id="areas"></div>
+
+        <h3 class="q-title">現在，你最想重新照顧哪一個面向？</h3>
+        <div class="chips" role="radiogroup" aria-label="最想照顧的面向" id="focus-chips"></div>
+
+        <div class="result-card" id="focus-result" hidden></div>
+
+        <p class="error" id="err-3" role="alert" hidden></p>
+        <div class="actions"><button type="button" class="btn btn-primary" data-action="next">下一步</button></div>
+      </section>
+
+      <!-- Page 4: My Next Step -->
+      <section class="page" data-page="4" data-name="My Next Step" data-cat="care" hidden>
+        <div class="page-head">
+          <p class="eyebrow">My Next Step</p>
+          <h2 class="page-title">不用一次改變全部，<br>先選一件想為自己做的事。</h2>
+          <div class="divider" aria-hidden="true"><svg><use href="#i-sparkle"/></svg></div>
+          <p class="hint" id="action-area-hint"></p>
+        </div>
+
+        <div id="action-picker">
+          <div class="options" role="radiogroup" aria-label="小行動" id="action-options"></div>
+
+          <label class="custom-action">
+            <span class="custom-action-title">或是，自己寫一句：</span>
+            <span class="custom-line">我想在
+              <input type="text" id="custom-when" maxlength="20" placeholder="這週末" aria-label="什麼時候之前">
+              之前，嘗試
+              <input type="text" id="custom-what" maxlength="30" placeholder="早一點睡" aria-label="想嘗試的事">
+              。</span>
+          </label>
+
+          <p class="error" id="err-4" role="alert" hidden></p>
+          <div class="actions"><button type="button" class="btn btn-primary" data-action="confirm-action">就決定是這件事</button></div>
+        </div>
+
+        <div id="action-result" hidden>
+          <div class="result-card result-card-glow has-wave">
+            <svg class="card-star" aria-hidden="true"><use href="#i-sparkle"/></svg>
+            <p class="pill">我給自己的小行動</p>
+            <p class="result-action" id="result-action"></p>
+            <div class="divider" aria-hidden="true"><svg><use href="#i-sparkle"/></svg></div>
+            <p class="result-encourage" id="result-encourage"></p>
+            <svg class="wave" aria-hidden="true"><use href="#i-wave"/></svg>
+          </div>
+          <div class="actions actions-split">
+            <button type="button" class="btn btn-ghost" data-action="edit-action">換一件</button>
+            <button type="button" class="btn btn-primary" data-action="next">下一步</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 5: Take Away -->
+      <section class="page" data-page="5" data-name="Take Away" hidden>
+        <div class="page-head">
+          <p class="eyebrow">Take Away</p>
+          <h2 class="page-title">把這份覺察帶回生活。</h2>
+          <div class="divider" aria-hidden="true"><svg><use href="#i-sparkle"/></svg></div>
+          <p class="hint">以下皆為選填，可以匿名填寫，也可以直接完成。</p>
+        </div>
+
+        <form id="feedback-form" novalidate>
+          <fieldset class="block">
+            <legend>體驗回饋</legend>
+
+            <p class="field-q" id="fbq1">1. 今天的體驗，有沒有讓你重新注意到某個生活面向？</p>
+            <div class="options options-sm" role="radiogroup" aria-labelledby="fbq1" data-field="fb1"></div>
+
+            <p class="field-q" id="fbq2">2. 今天哪個部分對你最有幫助？</p>
+            <div class="options options-sm" role="radiogroup" aria-labelledby="fbq2" data-field="fb2"></div>
+
+            <label class="field-q" for="fb3">想留給我們的一句話（選填）</label>
+            <textarea id="fb3" maxlength="200" rows="3" placeholder="任何感受或建議都可以"></textarea>
+          </fieldset>
+
+          <fieldset class="block">
+            <legend>3. 未來你對哪些內容有興趣？（可複選）</legend>
+            <div class="chips" data-field="interests"></div>
+          </fieldset>
+
+          <fieldset class="block">
+            <legend>保持聯繫（自願）</legend>
+            <a class="ig-link" id="ig-link" href="https://www.instagram.com/yulin__aerial.yoga/" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+              追蹤玉霖 Instagram
+            </a>
+
+            <label class="field-q" for="email">Email（選填）</label>
+            <input type="email" id="email" autocomplete="email" inputmode="email" placeholder="name@example.com">
+
+            <label class="check">
+              <input type="checkbox" id="consent-contact">
+              <span>我同意玉霖使用此 Email，與我聯繫本次體驗相關的後續資訊。（填寫 Email 時需勾選）</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="consent-notify">
+              <span>我願意收到玉霖的課程與活動通知。（獨立選項，可不勾選）</span>
+            </label>
+
+            <details class="privacy">
+              <summary>資料蒐集與使用說明</summary>
+              <ul>
+                <li><strong>不會上傳的內容：</strong>你在前面選的狀態、一分鐘覺察、生活面向與小行動，只暫存在你這個瀏覽器分頁，關閉分頁後就會清除。</li>
+                <li><strong>會蒐集的內容：</strong>只有你在這一頁主動填寫並按下「送出並完成」的內容，包括回饋選項、留言、感興趣的主題，以及你自願留下的 Email 和勾選的同意項目。不會要求姓名或電話。</li>
+                <li><strong>蒐集方式：</strong>資料透過 Google 表單送出，存放在玉霖的 Google 表單與試算表中，因此會經過 Google 的服務處理。</li>
+                <li><strong>匿名與聯絡資料分開：</strong>回饋內容與 Email 會分成兩筆紀錄送出，回饋紀錄中不包含 Email。</li>
+                <li><strong>Email 用途：</strong>Email 為自願提供。勾選「聯絡」才會用於本次體驗的後續聯繫；另外勾選「活動通知」才會收到課程與活動資訊，兩者互相獨立。</li>
+                <li>本體驗為生活探索活動，不是醫療診斷或心理評估，也不能取代專業協助。</li>
+              </ul>
+            </details>
+          </fieldset>
+
+          <p class="error" id="err-5" role="alert" hidden></p>
+          <div class="actions actions-stack">
+            <button type="submit" class="btn btn-primary" id="btn-submit">送出並完成</button>
+            <button type="button" class="btn btn-ghost" data-action="finish-skip">略過，直接完成</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Page 6: Done -->
+      <section class="page page-hero" data-page="6" data-name="Done" hidden>
+        <svg class="corner-arc" aria-hidden="true"><use href="#i-arc"/></svg>
+        <svg class="corner-star" aria-hidden="true"><use href="#i-sparkle"/></svg>
+        <div class="hero hero-done">
+          <p class="subtitle-en">Thank you for pausing</p>
+          <h2 class="title title-sm">謝謝你，<br>留了一分鐘給自己。</h2>
+
+          <div class="summary-card has-wave">
+            <svg class="card-dots" aria-hidden="true"><use href="#i-dots"/></svg>
+            <p class="pill">今天帶走的小發現</p>
+            <dl class="summary-list">
+              <div class="summary-row" id="sum-mood-row"><dt>此刻的我</dt><dd id="sum-mood"></dd></div>
+              <div class="summary-row" id="sum-focus-row"><dt>想重新照顧的面向</dt><dd id="sum-focus"></dd></div>
+            </dl>
+            <p class="summary-sub">我的小行動</p>
+            <p class="result-action" id="sum-action"></p>
+            <div class="divider" aria-hidden="true"><svg><use href="#i-sparkle"/></svg></div>
+            <p class="result-encourage" id="sum-note"></p>
+            <svg class="wave" aria-hidden="true"><use href="#i-wave"/></svg>
+            <p class="card-brand">職想瑜你 · <span class="card-ig">IG @yulin__aerial.yoga</span></p>
+          </div>
+
+          <p class="meta" id="submit-status" hidden></p>
+          <p class="note">想留著提醒自己的話，可以截圖保存這張卡片。</p>
+          <button type="button" class="btn btn-ghost" data-action="restart">重新體驗一次</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p>本體驗為生活探索活動，非醫療診斷或心理評估。如有身心不適，請尋求專業協助。</p>
+      <p class="foot-brand">© 玉霖 · <i>Find your balance</i></p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
